@@ -1,0 +1,116 @@
+.remonts {
+  &__main {
+    height: 140px;
+    background-color: #f8f8f8;
+    padding: 0 16px;
+  }
+  &__list {
+    display: flex;
+    min-width: 0;
+    height: 72px;
+    &-item {
+      width: 240px;
+      padding-top: 16px;
+    }
+  }
+  .remont {
+    width: 350px;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    &::before {
+      content: '';
+      right: 14px;
+      top: 28px;
+      position: absolute;
+      width: 18px;
+      height: 12px;
+      background: url(../img/arrow.svg) no-repeat;
+    }
+    &::after {
+      content: '';
+      right: 10px;
+      top: 14px;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: solid 2px #ff3e79;
+    }
+  }
+  &__expend {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .swiper {
+      width: auto;
+      height: auto;
+      &-pagination {
+        display: none;
+      }
+    }
+    .remonts__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px 24px;
+      height: 196px;
+      overflow: hidden;
+      &--visible {
+        height: auto;
+        overflow: visible;
+      }
+    }
+    .remont {
+      width: 100%;
+      height: 160px;
+    }
+    .remonts {
+      &__list-item {
+        width: 100%;
+      }
+      &__expend {
+        display: block;
+        padding: 24px 0;
+        &-button {
+          border: none;
+          background-color: #f8f8f8;
+          font-family: 'TT Lakes Regular';
+          font-weight: bold;
+          cursor: pointer;
+          align-items: center;
+        }
+        &-text {
+          font-size: 16px;
+          line-height: 24px;
+          padding-left: 16px;
+          &::before {
+            content: '';
+            bottom: 30px;
+            left: 12px;
+            position: absolute;
+            background: url(../img/expenddown.svg);
+            width: 20px;
+            height: 20px;
+            transition: all 0.5s;
+          }
+          &-rotate::before {
+            transform: rotate(180deg);
+            transition: all 0.5s;
+            bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1120px) {
+    .remonts__list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px 32px;
+    }
+  }
+}
